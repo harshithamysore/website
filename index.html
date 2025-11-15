@@ -7,6 +7,27 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
+		<style>
+			body::before {
+			    content: "";
+			    position: fixed;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+			    background: rgba(0, 0, 0, 0.25); /* adjust opacity */
+			    z-index: -1;
+			}
+			
+			body {
+			    background-image: url("IMG_20250726_182622730_HDR.jpg");
+			    background-size: cover;
+			    background-position: center;
+			    background-attachment: fixed;
+			}
+		</style>
+
+
 		<!-- Auto Dark Mode Support -->
 		<style>
 			img.circular {
@@ -245,4 +266,5 @@
 		<script src="assets/js/main.js"></script>
 
 	</body>
+
 </html>
