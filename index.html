@@ -7,17 +7,26 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-		<style>
-			body::before {
-			    content: "";
-			    position: fixed;
-			    top: 0;
-			    left: 0;
-			    width: 100%;
-			    height: 100%;
-			    background: rgba(0, 0, 0, 0.25); /* adjust opacity */
-			    z-index: -1;
-			}
+	<style>
+/* Background transparency overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25); /* adjust opacity */
+    z-index: -1;
+}
+
+/* Image override to make it square */
+.square-img {
+    border-radius: 0 !important;
+    object-fit: cover;
+}
+</style>
+
 			
 			body {
 			    background-image: url("background.jpg");
@@ -278,6 +287,7 @@
 	</body>
 
 </html>
+
 
 
 
