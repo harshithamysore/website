@@ -9,7 +9,14 @@
 
     <!-- Custom Styling -->
     <style>
-        /* Background transparency overlay */
+        /* Background image + overlay */
+        body {
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
         body::before {
             content: "";
             position: fixed;
@@ -21,21 +28,12 @@
             z-index: -1;
         }
 
-        /* Set background image */
-        body {
-            background-image: url("background.jpg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-        /* Force all images to be square */
+        /* Square images */
         .square-img {
             border-radius: 0 !important;
             object-fit: cover;
         }
 
-        /* Remove circular frame */
         .image,
         .image img {
             border-radius: 0 !important;
@@ -43,37 +41,53 @@
             box-shadow: none !important;
         }
 
-        /* Center all section headings */
-        section .major h2 {
-            text-align: center !important;
-            width: 100%;
-        }
-
-        /* Reverse spotlight layout */
-        .spotlight.reverse {
-            flex-direction: row-reverse;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #111 !important;
-                color: #e5e5e5 !important;
-            }
-            section,
-            .spotlight {
-                background-color: #1a1a1a !important;
-            }
-        }
-
+        /* Center section titles + underline */
         .major h2 {
             text-align: center !important;
         }
-        
+
         .major:after {
             margin-left: auto !important;
             margin-right: auto !important;
         }
 
+        /* Alternate layout for custom spotlight */
+        .spotlight {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        .spotlight .content {
+            flex: 1;
+        }
+
+        .spotlight .image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .spotlight .image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 12px;
+        }
+
+        /* Reverse spotlight block */
+        .spotlight.reverse {
+            flex-direction: row-reverse !important;
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #111 !important;
+                color: #e5e5e5 !important;
+            }
+        }
     </style>
 </head>
 
@@ -83,7 +97,7 @@
     <!-- Header -->
     <header id="header" class="alt">
         <h1>Harshitha M Parashivamurthy</h1>
-        <p style="color: rgba(255, 255, 255, 0.8);">
+        <p style="color: rgba(255, 255, 255, 0.85);">
             PhD Candidate • Exoplanet Demographics • University of Chile
         </p>
     </header>
@@ -103,19 +117,19 @@
     <!-- Main -->
     <div id="main">
 
-        <!-- ABOUT -->
+        <!-- ABOUT (TEXT LEFT, IMAGE RIGHT) -->
         <section id="about" class="main">
+            <header class="major">
+                <h2>About Me</h2>
+            </header>
+
             <div class="spotlight">
                 <div class="content">
-                    <header class="major">
-                        <h2>About Me</h2>
-                    </header>
-
                     <p>
                         I am a PhD candidate in the 
                         <a href="https://das.uchile.cl/">Department of Astronomy</a> 
-                        at the University of Chile, conducting research under the guidance of 
-                        Professors Gijs D. Mulders and Simon Casassus, focusing on exoplanet demographics.
+                        at the University of Chile, working with 
+                        Professors Gijs D. Mulders and Simon Casassus on exoplanet demographics.
                     </p>
 
                     <p>
@@ -125,93 +139,94 @@
                         </a>.
                     </p>
 
-                    <p>I hold a Master’s degree in Physics from the University of Bangalore.</p>
+                    <p>
+                        I hold a Master’s degree in Physics from the University of Bangalore.
+                    </p>
                 </div>
 
-                <span class="image">
+                <div class="image">
                     <img class="square-img"
                          src="https://github.com/user-attachments/assets/7ab90dac-4c15-4a7c-b330-ff269262117d"
-                         alt="Profile Photo" width="220" height="220" />
-                </span>
+                         alt="Profile Photo" />
+                </div>
             </div>
         </section>
 
-       <section id="outreach" class="main">
-    <header class="major">
-        <h2 style="text-align:center;">Outreach</h2>
-    </header>
+        <!-- OUTREACH  -->
+        <section id="outreach" class="main">
+            <header class="major">
+                <h2>Outreach</h2>
+            </header>
 
-    <div class="spotlights">
+            <div class="spotlights">
 
-        <!-- Outreach Team Member -->
-        <section class="spotlight">
-            <span class="image">
-                <img class="square-img"
-                     src="https://raw.githubusercontent.com/harshithamysore/website/18e334753b92e81ed8540717a5704b0dd752561a/images/out_das.jpg"
-                     alt="" />
-            </span>
-            <div class="content">
-                <h3>Outreach Team Member (2022–Present)</h3>
-                <p>
-                    Since 2022, I have been an active member of the Outreach Team at the 
-                    Department of Astronomy, University of Chile / Observatorio Astronómico Nacional. 
-                    I regularly guide 
-                    <a href="https://das.uchile.cl/visitas/" target="_blank">observatory tours</a> 
-                    for school groups and contribute to public engagement events across Santiago.
-                </p>
+                <!-- Outreach team (IMAGE LEFT) -->
+                <div class="spotlight reverse">
+                    <div class="image">
+                        <img class="square-img"
+                             src="https://raw.githubusercontent.com/harshithamysore/website/main/images/out_das.jpg"
+                             alt="">
+                    </div>
+
+                    <div class="content">
+                        <h3>Outreach Team Member (2022–Present)</h3>
+                        <p>
+                            I am an active outreach member at the Department of Astronomy,
+                            University of Chile / Observatorio Astronómico Nacional, leading 
+                            <a href="https://das.uchile.cl/visitas/" target="_blank">observatory tours</a> 
+                            and public events across Santiago.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- NOIRLab (IMAGE LEFT) -->
+                <div class="spotlight reverse">
+                    <div class="image">
+                        <img class="square-img"
+                             src="https://raw.githubusercontent.com/harshithamysore/website/main/images/out_noir.jpg"
+                             alt="">
+                    </div>
+
+                    <div class="content">
+                        <h3>NOIRLab Vera Rubin Science Ambassador (2023–Present)</h3>
+                        <p>
+                            As a Rubin Science Ambassador, I support public science outreach through 
+                            <a href="https://noirlab.edu/public/noirlab-ambassador/" target="_blank">
+                                NOIRLab programs
+                            </a>,
+                            bringing astronomy closer to diverse Chilean communities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- India–Chile (TEXT ONLY) -->
+                <div class="spotlight">
+                    <div class="content">
+                        <h3>India–Chile Astronomy Community Initiative</h3>
+                        <p>
+                            I am collaborating with the Embassy of India in Chile to build a quarterly 
+                            astronomy meet-and-greet that strengthens community and scientific engagement.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- NOIRLab Ambassador — IMAGE LEFT -->
-        <section class="spotlight">
-            <span class="image">
-                <img class="square-img"
-                     src="https://raw.githubusercontent.com/harshithamysore/website/18e334753b92e81ed8540717a5704b0dd752561a/images/out_noir.jpg"
-                     alt="" />
-            </span>
-            <div class="content">
-                <h3>NOIRLab Vera Rubin Science Ambassador (2023–Present)</h3>
-                <p>
-                    As a Vera Rubin Science Ambassador, I support astronomy education and public 
-                    engagement through 
-                    <a href="https://noirlab.edu/public/noirlab-ambassador/" target="_blank">
-                        NOIRLab outreach programs
-                    </a>. This role focuses on making astronomy accessible and inspiring curiosity 
-                    about the Chilean skies among the broader public.
-                </p>
-            </div>
-        </section>
-
-        <!-- India–Chile Initiative -->
-        <section class="spotlight">
-            <div class="content">
-                <h3>India–Chile Astronomy Community Initiative</h3>
-                <p>
-                    I am collaborating with the Embassy of India in Chile to establish a quarterly 
-                    astronomy meet-and-greet aimed at fostering connections between the Indian 
-                    community and Chile’s astronomy ecosystem.
-                </p>
-            </div>
-        </section>
-
-    </div>
-</section>
-
-
-        <!-- RESEARCH -->
+        <!-- RESEARCH (TEXT ONLY — clean layout) -->
         <section id="research" class="main">
             <header class="major">
                 <h2>Research</h2>
             </header>
 
-            <p class="content">
-                I have been working on exoplanets throughout my PhD, focusing on the following areas:
+            <p>
+                Throughout my PhD, I have focused on exoplanets, with research spanning several themes.
             </p>
 
             <h3>Exoplanet Demographics</h3>
             <p>
                 I study population-level properties of exoplanets around low-mass stars, using TESS data 
-                to investigate formation and evolutionary processes.
+                to better understand planet formation and evolution.
             </p>
 
             <p>
@@ -223,18 +238,18 @@
 
             <h3>Exoplanet Atmospheres</h3>
             <p>
-                I studied telluric correction techniques using Molecfit and PCA to analyze the atmosphere 
-                of a rocky exoplanet. Poster presented at OPAGA 2023:
+                I studied telluric correction using Molecfit and PCA to analyze a rocky exoplanet atmosphere.  
+                Poster presented at OPAGA 2023:
                 <a href="https://raw.githubusercontent.com/harshithamysore/website/main/OPAGA.pdf"
-                   target="_blank" type="application/pdf">
+                   target="_blank">
                     Link to poster
                 </a>
             </p>
 
             <h3>Exoplanet Detections</h3>
             <p>
-                I collaborated with Prof. Andrés Jordán and Prof. Rafael Brahm on detecting a warm 
-                Neptune using TESS light curves and radial-velocity follow-up.
+                I collaborated with Prof. Andrés Jordán and Prof. Rafael Brahm on the detection of a warm 
+                Neptune using TESS and radial-velocity follow-up.
             </p>
         </section>
 
@@ -247,9 +262,9 @@
             <p>
                 <strong>2025.</strong>
                 <a href="https://doi.org/10.1051/0004-6361/202554006" target="_blank">
-                    Parashivamurthy, H. M. & Mulders, G. D.
-                    <strong>"Radius valley scaling among low-mass stars with TESS"</strong>
-                    A&A 703 A8
+                    Parashivamurthy, H. M. & Mulders, G. D.,
+                    <strong>Radius valley scaling among low-mass stars with TESS</strong>.  
+                    A&A 703 A8.
                 </a>
             </p>
         </section>
@@ -263,7 +278,7 @@
             <p>You can download my CV here:</p>
 
             <p>
-                <a href="https://github.com/harshithamysore/website/raw/ed6715a951a4443994533808748fd5bfcb594c10/Application.pdf"
+                <a href="https://github.com/harshithamysore/website/raw/main/Application.pdf"
                    class="button primary" target="_blank">
                     View CV
                 </a>
@@ -307,5 +322,3 @@
 
 </body>
 </html>
-
-
