@@ -1,54 +1,63 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Harshitha M Parashivamurthy</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <title>Harshitha M Parashivamurthy</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-	<style>
-/* Background transparency overlay */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.25); /* adjust opacity */
-    z-index: -1;
-}
+    <!-- Custom Styling -->
+    <style>
+        /* Background transparency overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: -1;
+        }
 
-/* Image override to make it square */
-.square-img {
-    border-radius: 0 !important;
-    object-fit: cover;
-}			
-			body {
-			    background-image: url("background.jpg");
-			    background-size: cover;
-			    background-position: center;
-			    background-attachment: fixed;
-			}
-		</style>
+        /* Set background image */
+        body {
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
+        /* Force all images to be square */
+        .square-img {
+            border-radius: 0 !important;
+            object-fit: cover;
+        }
 
-		<!-- Auto Dark Mode Support -->
-		<style>
-				@media (prefers-color-scheme: dark) {
-				body {
-					background-color: #111 !important;
-					color: #e5e5e5 !important;
-				}
-				section, .spotlight {
-					background-color: #1a1a1a !important;
-				}
-			}
-		</style>
-	</head>
+        /* Remove circular/oval frame applied by the HTML5UP theme */
+        .image,
+        .image img {
+            border-radius: 0 !important;
+            overflow: visible !important;
+            box-shadow: none !important;
+        }
 
-	<body class="is-preload">
+        /* Auto Dark Mode */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #111 !important;
+                color: #e5e5e5 !important;
+            }
+            section,
+            .spotlight {
+                background-color: #1a1a1a !important;
+            }
+        }
+    </style>
+</head>
+
+		<body class="is-preload">
 		<div id="wrapper">
 
 			<!-- Header -->
@@ -280,6 +289,7 @@ body::before {
 	</body>
 
 </html>
+
 
 
 
