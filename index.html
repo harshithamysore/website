@@ -7,62 +7,59 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <!-- Custom Styling -->
     <style>
-        /* Background image + overlay */
+        /* Background + overlay */
         body {
             background-image: url("background.jpg");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
-
         body::before {
             content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.25);
+            inset: 0;
+            background: rgba(0,0,0,0.25);
             z-index: -1;
         }
 
-        /* Square images */
+        /* Remove ALL borders + boxes around images */
+        .image img,
         .square-img {
-            border-radius: 0 !important;
-            object-fit: cover;
-        }
-
-        .image,
-        .image img {
-            border-radius: 0 !important;
-            overflow: visible !important;
+            border: none !important;
             box-shadow: none !important;
+            background: transparent !important;
         }
 
-        /* Center section titles + underline */
+        /* Ensure square images render cleanly */
+        .square-img {
+            object-fit: cover;
+            border-radius: 0 !important;
+        }
+
+        /* Center all section headings */
         .major h2 {
             text-align: center !important;
         }
 
+        /* FIX: Perfectly center the colored underline */
         .major:after {
             margin-left: auto !important;
             margin-right: auto !important;
+            left: 0 !important;
+            right: 0 !important;
         }
 
-        /* Alternate layout for custom spotlight */
+        /* Spotlight layout */
         .spotlight {
             display: flex;
-            align-items: center;
+ TH align-items: center;
             justify-content: center;
             gap: 40px;
             padding: 40px 0;
         }
 
-        .spotlight .content {
-            flex: 1;
-        }
+        .spotlight .content { flex: 1; }
 
         .spotlight .image {
             flex: 1;
@@ -73,20 +70,15 @@
         .spotlight .image img {
             width: 100%;
             max-width: 350px;
-            border-radius: 12px;
         }
 
-        /* Reverse spotlight block */
+        /* Reverse block */
         .spotlight.reverse {
             flex-direction: row-reverse !important;
         }
 
-        /* Dark mode */
         @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #111 !important;
-                color: #e5e5e5 !important;
-            }
+            body { background-color: #111 !important; color: #e5e5e5 !important; }
         }
     </style>
 </head>
@@ -97,9 +89,7 @@
     <!-- Header -->
     <header id="header" class="alt">
         <h1>Harshitha M Parashivamurthy</h1>
-        <p style="color: rgba(255, 255, 255, 0.85);">
-            PhD Candidate • Exoplanet Demographics • University of Chile
-        </p>
+        <p style="color: rgba(255,255,255,0.85);">PhD Candidate • Exoplanet Demographics • University of Chile</p>
     </header>
 
     <!-- Navigation -->
@@ -114,10 +104,9 @@
         </ul>
     </nav>
 
-    <!-- Main -->
     <div id="main">
 
-        <!-- ABOUT (TEXT LEFT, IMAGE RIGHT) -->
+        <!-- ABOUT -->
         <section id="about" class="main">
             <header class="major">
                 <h2>About Me</h2>
@@ -128,15 +117,12 @@
                     <p>
                         I am a PhD candidate in the 
                         <a href="https://das.uchile.cl/">Department of Astronomy</a> 
-                        at the University of Chile, working with 
-                        Professors Gijs D. Mulders and Simon Casassus on exoplanet demographics.
+                        at the University of Chile, working with Professors Gijs D. Mulders and Simon Casassus on exoplanet demographics.
                     </p>
 
                     <p>
                         I am also an adjunct researcher at the 
-                        <a href="https://astrofisicamas.cl/en/harshitha-mp" target="_blank">
-                            Millennium Institute of Astrophysics
-                        </a>.
+                        <a href="https://astrofisicamas.cl/en/harshitha-mp" target="_blank">Millennium Institute of Astrophysics</a>.
                     </p>
 
                     <p>
@@ -146,13 +132,12 @@
 
                 <div class="image">
                     <img class="square-img"
-                         src="https://github.com/user-attachments/assets/7ab90dac-4c15-4a7c-b330-ff269262117d"
-                         alt="Profile Photo" />
+                        src="https://github.com/user-attachments/assets/7ab90dac-4c15-4a7c-b330-ff269262117d" alt="">
                 </div>
             </div>
         </section>
 
-        <!-- OUTREACH  -->
+        <!-- OUTREACH -->
         <section id="outreach" class="main">
             <header class="major">
                 <h2>Outreach</h2>
@@ -160,96 +145,62 @@
 
             <div class="spotlights">
 
-                <!-- Outreach team (IMAGE LEFT) -->
+                <!-- DAS outreach -->
                 <div class="spotlight reverse">
                     <div class="image">
                         <img class="square-img"
-                             src="https://raw.githubusercontent.com/harshithamysore/website/main/images/out_das.jpg"
-                             alt="">
+                             src="https://raw.githubusercontent.com/harshithamysore/website/main/images/out_das.jpg">
                     </div>
-
                     <div class="content">
                         <h3>Outreach Team Member (2022–Present)</h3>
                         <p>
-                            I am an active outreach member at the Department of Astronomy,
-                            University of Chile / Observatorio Astronómico Nacional, leading 
-                            <a href="https://das.uchile.cl/visitas/" target="_blank">observatory tours</a> 
-                            and public events across Santiago.
+                            I regularly guide 
+                            <a href="https://das.uchile.cl/visitas/" target="_blank">observatory tours</a>
+                            and contribute to public engagement across Santiago.
                         </p>
                     </div>
                 </div>
 
-                <!-- NOIRLab (IMAGE LEFT) -->
+                <!-- NOIRLab -->
                 <div class="spotlight reverse">
                     <div class="image">
                         <img class="square-img"
-                             src="https://raw.githubusercontent.com/harshithamysore/website/main/images/out_noir.jpg"
-                             alt="">
+                             src="https://raw.githubusercontent.com/harshithamysore/website/main/images/out_noir.jpg">
                     </div>
-
                     <div class="content">
                         <h3>NOIRLab Vera Rubin Science Ambassador (2023–Present)</h3>
                         <p>
-                            As a Rubin Science Ambassador, I support public science outreach through 
-                            <a href="https://noirlab.edu/public/noirlab-ambassador/" target="_blank">
-                                NOIRLab programs
-                            </a>,
-                            bringing astronomy closer to diverse Chilean communities.
+                            I support astronomy outreach through 
+                            <a href="https://noirlab.edu/public/noirlab-ambassador/" target="_blank">NOIRLab Ambassador programs</a>.
                         </p>
                     </div>
                 </div>
 
-                <!-- India–Chile (TEXT ONLY) -->
+                <!-- India–Chile -->
                 <div class="spotlight">
                     <div class="content">
                         <h3>India–Chile Astronomy Community Initiative</h3>
-                        <p>
-                            I am collaborating with the Embassy of India in Chile to build a quarterly 
-                            astronomy meet-and-greet that strengthens community and scientific engagement.
-                        </p>
+                        <p>I work with the Indian Embassy in Chile to build astronomy community connections.</p>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- RESEARCH (TEXT ONLY — clean layout) -->
+        <!-- RESEARCH -->
         <section id="research" class="main">
             <header class="major">
                 <h2>Research</h2>
             </header>
 
-            <p>
-                Throughout my PhD, I have focused on exoplanets, with research spanning several themes.
-            </p>
-
-            <h3>Exoplanet Demographics</h3>
-            <p>
-                I study population-level properties of exoplanets around low-mass stars, using TESS data 
-                to better understand planet formation and evolution.
-            </p>
-
-            <p>
-                <strong>Project 1:</strong>
-                <a href="https://drive.google.com/file/d/1MEk0F76wIJ8uEU8z88GMrIe6KOJH3xrQ/view?usp=sharing" target="_blank">
-                    Exploring the Radius Valley Among the Lowest-Mass Stars with TESS
-                </a>
-            </p>
+            <p>I study exoplanet populations using TESS, focusing on small planets around low-mass stars.</p>
 
             <h3>Exoplanet Atmospheres</h3>
             <p>
-                I studied telluric correction using Molecfit and PCA to analyze a rocky exoplanet atmosphere.  
-                Poster presented at OPAGA 2023:
-                <a href="https://raw.githubusercontent.com/harshithamysore/website/main/OPAGA.pdf"
-                   target="_blank">
+                Poster at OPAGA 2023:
+                <a href="https://raw.githubusercontent.com/harshithamysore/website/main/OPAGA.pdf" target="_blank">
                     Link to poster
                 </a>
-            </p>
-
-            <h3>Exoplanet Detections</h3>
-            <p>
-                I collaborated with Prof. Andrés Jordán and Prof. Rafael Brahm on the detection of a warm 
-                Neptune using TESS and radial-velocity follow-up.
             </p>
         </section>
 
@@ -262,21 +213,14 @@
             <p>
                 <strong>2025.</strong>
                 <a href="https://doi.org/10.1051/0004-6361/202554006" target="_blank">
-                    Parashivamurthy, H. M. & Mulders, G. D.,
-                    <strong>Radius valley scaling among low-mass stars with TESS</strong>.  
-                    A&A 703 A8.
+                    Parashivamurthy & Mulders — Radius valley scaling among low-mass stars with TESS (A&A 703 A8)
                 </a>
             </p>
         </section>
 
         <!-- CV -->
         <section id="cv" class="main special">
-            <header class="major">
-                <h2>Curriculum Vitae</h2>
-            </header>
-
-            <p>You can download my CV here:</p>
-
+            <header class="major"><h2>Curriculum Vitae</h2></header>
             <p>
                 <a href="https://github.com/harshithamysore/website/raw/main/Application.pdf"
                    class="button primary" target="_blank">
@@ -287,31 +231,23 @@
 
         <!-- CONTACT -->
         <section id="contact" class="main special">
-            <header class="major">
-                <h2>Contact</h2>
-            </header>
-
+            <header class="major"><h2>Contact</h2></header>
             <ul class="icons">
                 <li><a href="mailto:harshitha@das.uchile.cl" class="icon solid fa-envelope alt"></a></li>
                 <li><a href="https://github.com/harshithamysore" class="icon brands fa-github alt" target="_blank"></a></li>
                 <li><a href="https://orcid.org/0009-0007-9553-4353" class="icon brands fa-orcid alt" target="_blank"></a></li>
-                <li><a href="https://bsky.app/profile/harshithamysore.bsky.social" target="_blank" class="icon solid fa-bold alt"></a></li>
+                <li><a href="https://bsky.app/profile/harshithamysore.bsky.social" class="icon solid fa-bold alt" target="_blank"></a></li>
             </ul>
         </section>
 
     </div>
 
-    <!-- Footer -->
     <footer id="footer">
-        <p class="copyright">
-            &copy; 2025 Harshitha Parashivamurthy. Template by 
-            <a href="https://html5up.net">HTML5 UP</a>.
-        </p>
+        <p>&copy; 2025 Harshitha Parashivamurthy • Template: HTML5UP</p>
     </footer>
 
 </div>
 
-<!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
