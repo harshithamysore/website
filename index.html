@@ -84,6 +84,11 @@
            5) Gallery / image rules (keeps images square/clean)
            ------------------------------- */
         .gallery-item img { max-width: 100%; height: auto; border-radius: 0; box-shadow: none; }
+        .gallery-row { display: flex;
+    justify-content: center;   /* center images */
+    gap: 20px;                 /* space between the images */ }
+
+
         .image, .image img, .square-img { border-radius: 0 !important; object-fit: cover; overflow: visible !important; box-shadow: none !important; }
 
         /* -------------------------------
@@ -257,13 +262,16 @@
             <p>In my research, I used the TESS Objects of Interests (TOI) planet candidates and the Gaia DR3 updated stellar parameters from the Bioverse catalog to characterize the planet radius distribution and discover the radius valley among the M dwarfs. I also discovered that the radius valley shrinks to a smaller radius with decreasing stellar mass, consistent with Kepler observations. This linear dependence between the planet size and its host star suggests that the mechanisms shaping the radius distribution of planets around FGK stars, such as photo-evaporation or core-powered mass loss, also extend to M dwarfs.            </p> 
             <p>The detection of the radius valley around lower mass M dwarfs allows for a more detailed analysis of the scaling relation between the radius valley and stellar mass. We find evidence for a flatter scaling than predicted by photo-evaporation models, and more consistent with pebble accretion models that include exoplanet water worlds. These results indicate that low mass stars provide an excellent testing ground for testing different mechanisms of planet formation.            </p>
 
+<div class="gallery-row">
+    <div class="gallery-item">
+        <img src="images/fig1.png" alt="fig 1 paper" width="40%">
+    </div>
 
-             <div class="gallery-item">
-            <img src="images/fig1.png" alt=" fig 1 paper" width="40%">
-        </div>
-            <div class="gallery-item">
-            <img src="fig4.png" alt=" fig 4 paper" width="40%">
-        </div>
+    <div class="gallery-item">
+        <img src="images/fig4.png" alt="fig 4 paper" width="40%">
+    </div>
+</div>
+
 
             <h3><strong>Exoplanet Atmospheres</strong></h3>
             <p>
@@ -387,6 +395,7 @@
 
 </body>
 </html>
+
 
 
 
