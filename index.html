@@ -30,7 +30,12 @@
 .major:after {
         display: none !important;
 }
-
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 0; /* remove borders completely */
+            box-shadow: none; /* remove box shadow */
+        }
 
         /* Square images */
         .square-img {
@@ -50,16 +55,7 @@
             text-align: center !important;
         }
 
-        .major:after {
-    display: block;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    left: 0 !important;
-    right: 0 !important;
-}
-
-
-        /* Alternate layout for custom spotlight */
+            /* Alternate layout for custom spotlight */
         .spotlight {
             display: flex;
             align-items: center;
@@ -375,6 +371,7 @@
 
 </body>
 </html>
+
 
 
 
