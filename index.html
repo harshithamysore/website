@@ -10,13 +10,13 @@
     <!-- Custom Styling -->
     <style>
         /* Background image + overlay */
-        body {
-            background-image: url("background.jpg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
+body {
+    background-image: url("background.jpg");
+    background-size: contain;  /* <-- SHOWS THE FULL IMAGE */
+    background-position: center;
+    background-repeat: no-repeat; /* Important: avoid tiling */
+    background-attachment: fixed;
+}
         body::before {
             content: "";
             position: fixed;
@@ -367,6 +367,7 @@
 
 </body>
 </html>
+
 
 
 
