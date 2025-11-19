@@ -4,58 +4,69 @@
     <title>Harshitha M Parashivamurthy</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <!-- Main template stylesheet -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <!-- Custom Styling -->
+    <!-- ================================
+         CUSTOM STYLING FOR YOUR WEBSITE
+         ================================ -->
     <style>
-    
-        /* Background image + overlay */ 
-        body { 
+
+        /* ----------------------------------------------------
+           1. Background image + dark overlay
+           ---------------------------------------------------- */
+        body {
             background-image: url("background.jpg");
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed; }
-        
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Transparent dark overlay above background */
         body::before {
             content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: rgba(0, 0, 0, 0.25);
             z-index: -1;
         }
-.major:after {
-        display: none !important;
-}
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 0; /* remove borders completely */
-            box-shadow: none; /* remove box shadow */
+
+        /* ----------------------------------------------------
+           2. REMOVE MISALIGNED UNDERLINE UNDER SECTION TITLES
+           ---------------------------------------------------- */
+        .major:after {
+            display: none !important;
         }
 
-        /* Square images */
-        .square-img {
-            border-radius: 0 !important;
-            object-fit: cover;
-        }
-
-        .image,
-        .image img {
-            border-radius: 0 !important;
-            overflow: visible !important;
-            box-shadow: none !important;
-        }
-
-        /* Center section titles + underline */
+        /* Center section titles */
         .major h2 {
             text-align: center !important;
         }
 
-            /* Alternate layout for custom spotlight */
+        /* ----------------------------------------------------
+           3. Image styling — remove borders & shadows
+           ---------------------------------------------------- */
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .image,
+        .image img,
+        .square-img {
+            border-radius: 0 !important;
+            object-fit: cover;
+            overflow: visible !important;
+            box-shadow: none !important;
+        }
+
+        /* ----------------------------------------------------
+           4. Spotlight Layout (About, Outreach sections)
+           ---------------------------------------------------- */
         .spotlight {
             display: flex;
             align-items: center;
@@ -74,18 +85,21 @@
             justify-content: center;
         }
 
+        /* Max width for spotlight images */
         .spotlight .image img {
             width: 100%;
             max-width: 350px;
             border-radius: 12px;
         }
 
-        /* Reverse spotlight block */
+        /* Reverse alignment (image on left) */
         .spotlight.reverse {
             flex-direction: row-reverse !important;
         }
 
-        /* Dark mode */
+        /* ----------------------------------------------------
+           5. Dark Mode Override
+           ---------------------------------------------------- */
         @media (prefers-color-scheme: dark) {
             body {
                 background-color: #111 !important;
@@ -94,6 +108,7 @@
         }
     </style>
 </head>
+
 
 <body class="is-preload">
 <div id="wrapper">
@@ -371,6 +386,7 @@
 
 </body>
 </html>
+
 
 
 
