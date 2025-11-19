@@ -5,18 +5,66 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-    <!-- Main template stylesheet -->
+    <!-- Load the template stylesheet first (keeps template behaviour) -->
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <!-- ================================
-         CUSTOM STYLING FOR YOUR WEBSITE
-         ================================ -->
+    <!--
+      Custom overrides (must come AFTER main.css).
+      These rules aggressively remove the decorative underline
+      coming from the theme (covers commonly-used selectors/variants).
+    -->
     <style>
+        /* -------------------------------
+           1) Strongly disable any pseudo-element
+              used for the underline/decorative bar.
+           ------------------------------- */
+        /* catch :after / ::after variants and common parent selectors */
+        .major:after,
+        .major::after,
+        .major:before,
+        .major::before,
+        header.major:after,
+        header.major::after,
+        header.major:before,
+        header.major::before,
+        .major h2:after,
+        .major h2::after,
+        .major h2:before,
+        .major h2::before,
+        /* some templates add an inner wrapper name */
+        .major .inner:after,
+        .major .inner::after {
+            display: none !important;      /* hide it */
+            content: none !important;      /* remove content (safety) */
+            width: 0 !important;           /* remove any width */
+            height: 0 !important;          /* remove height */
+            background: none !important;   /* remove gradient or color */
+            box-shadow: none !important;   /* remove shadows that draw lines */
+            border: none !important;       /* remove borders */
+        }
 
-        /* ----------------------------------------------------
-           1. Background image + dark overlay
-           ---------------------------------------------------- */
+        /* -------------------------------
+           2) Fallback: hide any small hr/line elements if they exist
+           ------------------------------- */
+        .major hr,
+        header.major hr,
+        .major .underline,
+        .major .divider {
+            display: none !important;
+        }
+
+        /* -------------------------------
+           3) Keep section titles centered
+           (no underline, just center the text)
+           ------------------------------- */
+        .major h2 {
+            text-align: center !important;
+        }
+
+        /* -------------------------------
+           4) Background + overlay (keep as you had it)
+           ------------------------------- */
         body {
             background-image: url("background.jpg");
             background-size: cover;
@@ -24,91 +72,45 @@
             background-attachment: fixed;
         }
 
-        /* Transparent dark overlay above background */
         body::before {
             content: "";
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0,0,0,0.25);
             z-index: -1;
         }
 
-        /* ----------------------------------------------------
-           2. REMOVE MISALIGNED UNDERLINE UNDER SECTION TITLES
-           ---------------------------------------------------- */
-        .major:after {
-            display: none !important;
-        }
+        /* -------------------------------
+           5) Gallery / image rules (keeps images square/clean)
+           ------------------------------- */
+        .gallery-item img { width: 100%; height: auto; border-radius: 0; box-shadow: none; }
+        .image, .image img, .square-img { border-radius: 0 !important; object-fit: cover; overflow: visible !important; box-shadow: none !important; }
 
-        /* Center section titles */
-        .major h2 {
-            text-align: center !important;
-        }
+        /* -------------------------------
+           6) Spotlight layout (About / Outreach)
+           ------------------------------- */
+        .spotlight { display:flex; align-items:center; justify-content:center; gap:40px; padding:40px 0; }
+        .spotlight .content { flex:1; }
+        .spotlight .image { flex:1; display:flex; justify-content:center; }
+        .spotlight .image img { width:100%; max-width:350px; border-radius:12px; }
+        .spotlight.reverse { flex-direction: row-reverse !important; }
 
-        /* ----------------------------------------------------
-           3. Image styling — remove borders & shadows
-           ---------------------------------------------------- */
-        .gallery-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 0;
-            box-shadow: none;
-        }
-
-        .image,
-        .image img,
-        .square-img {
-            border-radius: 0 !important;
-            object-fit: cover;
-            overflow: visible !important;
-            box-shadow: none !important;
-        }
-
-        /* ----------------------------------------------------
-           4. Spotlight Layout (About, Outreach sections)
-           ---------------------------------------------------- */
-        .spotlight {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            padding: 40px 0;
-        }
-
-        .spotlight .content {
-            flex: 1;
-        }
-
-        .spotlight .image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Max width for spotlight images */
-        .spotlight .image img {
-            width: 100%;
-            max-width: 350px;
-            border-radius: 12px;
-        }
-
-        /* Reverse alignment (image on left) */
-        .spotlight.reverse {
-            flex-direction: row-reverse !important;
-        }
-
-        /* ----------------------------------------------------
-           5. Dark Mode Override
-           ---------------------------------------------------- */
+        /* -------------------------------
+           7) Dark-mode fallback
+           ------------------------------- */
         @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #111 !important;
-                color: #e5e5e5 !important;
-            }
+            body { background-color:#111 !important; color:#e5e5e5 !important; }
         }
+
+        /* -------------------------------
+           8) DEBUG (temporary)
+           Put a dashed outline on .major so you can see its box.
+           Remove or comment this block after confirming the underline is gone.
+           ------------------------------- */
+        /* .major { outline: 2px dashed rgba(255,0,0,0.35); } */
+
     </style>
 </head>
-
 
 <body class="is-preload">
 <div id="wrapper">
@@ -386,6 +388,7 @@
 
 </body>
 </html>
+
 
 
 
